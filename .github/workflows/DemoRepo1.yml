@@ -29,6 +29,6 @@ jobs:
     steps: 
       - uses: actions/download-artifact@v4
         with: 
-         name: build-artifect
+         name: testArtifact
          path: $({github.workspace})
 
