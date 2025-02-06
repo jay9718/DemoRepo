@@ -1,12 +1,33 @@
 name: demoActions
 
-# on:
+on:
   # push: 
   #   branches: main
+
+  issues:
+    types: opened
+
+  workfolw_dispatch:
 
 jobs:
   build:
     runs-on: windows 
     steps:
       - uses: actions/checkout@v4.2.2
-      - run: run as sample job
+      - name: run as sample job
+        run: echo hellow world 
+
+      - name: Demo123
+        uses: actions/upload-artifact@v4
+        with: 
+          name: testArtifact
+          path: $({github.woarkspace})
+  deploy: 
+    runs-on: windows
+    
+    steps: 
+      - uses: actions/download-artifact@v4
+      wiht: 
+       name: build-artifect
+       path: $({github.woarkspace})
+
